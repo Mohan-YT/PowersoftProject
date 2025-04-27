@@ -1,0 +1,25 @@
+{
+  "name": "powersoft",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server --prefix backend\" \"npm run dev --prefix frontend\"",
+  "server": "npm run dev --prefix backend",
+  "client": "npm run dev --prefix frontend"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mohan-YT/powersoftEmployeeManagementProject.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mohan-YT/powersoftEmployeeManagementProject/issues"
+  },
+  "homepage": "https://github.com/Mohan-YT/powersoftEmployeeManagementProject#readme",
+  "description": "",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

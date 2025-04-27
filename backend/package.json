@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "install-all": "npm install && cd frontend && npm install && cd ..",
+    "build": "npm run install-all && cd frontend && npm run build",
+    "server": "node server.js", 
+    "client": "cd frontend && npm run dev",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
   "author": "",
@@ -22,7 +25,9 @@
     "yup": "^1.6.1"
   },
   "devDependencies": {
-    "nodemon": "^3.1.9"
+    "concurrently": "^9.1.2",
+    "nodemon": "^3.1.9",
+    "vite": "^6.3.3"
   },
   "type": "module"
 }
