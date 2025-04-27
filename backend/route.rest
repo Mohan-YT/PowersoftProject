@@ -1,0 +1,136 @@
+//Employee Management
+###
+GET http://localhost:5000/employees
+Content-Type: application/json
+
+
+###
+GET http://localhost:5000/employees/6809b8a88dc9000ea0bcd2e0
+Content-Type: application/json
+
+
+###
+POST http://localhost:5000/employees/create
+Content-Type: application/json
+
+{
+    "name" : "dev",
+    "position" : "frontend developer",
+    "email" : "dev@gmail.com",
+    "profileImg" : "https://i.pravatar.cc/150?img=23"
+}
+
+
+###
+PATCH  http://localhost:5000/employees/edit/6809b8a88dc9000ea0bcd2e0
+Content-Type: application/json
+
+{
+    "name" : "mohan",
+    "position" : "frontend/react developer",
+    "email" : "mohan@gmail.com",
+    "profileImg" : "https://i.pravatar.cc/150?img=11"
+}
+
+
+###
+DELETE   http://localhost:5000/employees/delete/6809b8a88dc9000ea0bcd2e0
+Content-Type: application/json
+
+
+
+
+
+
+//Project Management
+###
+GET http://localhost:5000/project
+Content-Type: application/json
+
+
+###
+POST http://localhost:5000/project/create
+Content-Type: application/json
+
+{
+    "title" : "project",
+    "description" : "project board for project anagement",
+    "logo" : "https://i.pravatar.cc/150?img=14",
+    "startDate" : "2025-05-23T14:30:00.000Z",
+    "endDate" : "2025-06-23T14:30:00.000Z",
+    "assignedEmps" : ["6809bc8ec346fa942929fda4"]
+}
+
+
+###
+GET http://localhost:5000/project/680a3b8b0418b655465da5ea
+Content-Type: application/json
+
+
+###
+PATCH  http://localhost:5000/project/edit/6809c266b249302ef9f1b116
+Content-Type: application/json
+
+{
+    "title" : "todo list",
+    "description" : "manage projects board management",
+    "logo" : "https://i.pravatar.cc/150?img=9",
+    "startDate" : "2025-04-23T14:30:00.000Z",
+    "endDate" : "2025-05-23T14:30:00.000Z",
+    "assignedEmps" : ["680920b0f145244ab822b9c9"]
+}
+
+
+###
+DELETE http://localhost:5000/project/delete/6809c266b249302ef9f1b116
+Content-Type: application/json
+
+
+
+
+
+//Task Management
+
+###
+GET http://localhost:5000/task
+Content-Type: application/json
+
+
+###
+POST  http://localhost:5000/task/create
+Content-Type: application/json
+
+{
+    "title" : "task 3",
+    "description" : "task 3",
+    "assignedEmps" : ["6809b8838dc9000ea0bcd2de"],
+    "project" : "6809c266b249302ef9f1b116",
+    "deadline" : "2025-05-23T14:30:00.000Z",
+    "refImg" : ["https://i.pravatar.cc/150?img=23","https://i.pravatar.cc/150?img=20"],
+    "status" : "In Progress"
+}
+
+
+###
+GET http://localhost:5000/task/680a1bfb7779ac7bc2722c4a
+Content-Type: application/json
+
+
+###
+PATCH  http://localhost:5000/task/edit/680a1bfb7779ac7bc2722c4a
+Content-Type: application/json
+
+{
+    "title" : "task",
+    "description" : "task for powersoft",
+    "assignedEmps" : ["6809b8838dc9000ea0bcd2de"],
+    "project" : "6809c266b249302ef9f1b116",
+    "deadline" : "2025-05-23T14:30:00.000Z",
+    "refImg" : ["https://i.pravatar.cc/150?img=8","https://i.pravatar.cc/150?img=12"],
+    "status" : "In Progress"
+}
+
+
+###
+DELETE  http://localhost:5000/task/delete/680a1bfb7779ac7bc2722c4a
+Content-Type: application/json
