@@ -75,7 +75,7 @@ const EmployeeSec = () => {
     
               <main className="h-[80%]">
                 <div className="w-full h-[100%] overflow-y-auto" >
-                  <table className=" table relative">
+                  <table className=" table relative flex justify-center items-center">
 
                     <thead className="h-[7%] md:h-[15%]  sticky top-0 left-0 bg-white z-20">
                       <tr>
@@ -87,8 +87,11 @@ const EmployeeSec = () => {
                     <tbody className="h-[85%] w-full">
                       {isLoading ? (
                         <tr>
-                          <td colSpan={2}>
-                             <LoadingRingSVG />
+                          <td>
+                            <div className="w-80 h-30 flex justify-center items-center">
+                                <LoadingRingSVG />
+                            </div>
+                            
                           </td>
                         </tr>
                       ) : (

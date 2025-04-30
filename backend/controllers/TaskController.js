@@ -91,7 +91,7 @@ export const editTask = async (req,res)=>{
         const {id} = req.params
         const {title, description, assignedEmps,project, deadline, refImg, status} = req.body
 
-        const findTask = await TaskModel.findById(id)
+        const findTask = await TaskModel.findById(id);
 
         if (!findTask) {
             return res.status(404).json({ error: "Task not found" });
@@ -113,25 +113,30 @@ export const editTask = async (req,res)=>{
 
         for(let img of refImg){
             if(!img.public_id){
-               const uploaded = await cloudinary.uploader.upload(img,{folder : "task-images"})
-               newRegImgs.push({
-                url : uploaded.secure_url,
-                public_id : uploaded.public_id
-               })
+                try {
+                    const uploaded = await cloudinary.uploader.upload(img, { folder: "task-images" });
+                    newRegImgs.push({ url: uploaded.secure_url, public_id: uploaded.public_id });
+                } catch (uploadErr) {
+                    console.error(`Cloudinary upload failed for ${img}:`, uploadErr.message);
+                }
             }
         }
+        
 
-        await TaskSchema.validate({title, description, assignedEmps,project, deadline, refImg : newRegImgs , status})
+        await TaskSchema.validate({
+            title, description, assignedEmps, project, deadline,
+            refImg: newRegImgs, status
+          });
 
         const updatedTask = {title, description, assignedEmps,project, deadline, refImg : newRegImgs , status}
 
-        await TaskModel.findByIdAndUpdate(id,updatedTask,{new : true})
+        const updated = await TaskModel.findByIdAndUpdate(id, updatedTask, { new: true });
 
-        return res.status(200).json({message : "Task Updated Succssfully"})
+        return res.status(200).json({ message: "Task updated successfully", updatedTask: updated });
 
     } catch (error) {
-        console.log(`Error from editTask : ${error.message}`)
-        return res.status(500).json({error : "Internal Server Error"})
+        console.error(`Error from editTask : ${error.message}`)
+        return res.status(500).json({error : error})
     }
 }
 

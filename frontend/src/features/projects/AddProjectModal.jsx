@@ -89,16 +89,16 @@ const AddProjectModal = () => {
             {...register("description")}
           />
           {errors?.description && <p>{errors.description.message}</p>}
-
+ 
           <input
-            type="date"
-            id="startDate"
-            {...register('startDate')}
-            className="input input-bordered w-full text-left "
-            onChange={(e) => setValue('startDate', e.target.value, { shouldValidate: true })}
-          />
-          {errors?.startDate && <p>{errors.startDate.message}</p>}
-
+               type="date"
+               id="startDate"
+               {...register('startDate')}
+               className="input input-bordered w-full text-left "
+               onChange={(e) => setValue('startDate', e.target.value, { shouldValidate: true })}
+             />
+             {errors?.startDate && <p>{errors.startDate.message}</p>}
+             
           <input
             name="endDate"
             type="date"

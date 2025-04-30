@@ -77,8 +77,8 @@ const MainEmployePage = () => {
           </nav>
 
           <main className="h-[100%]">
-            <div className="h-full overflow-y-auto" >
-              <table className="table w-full">
+            <div className="h-full w-full overflow-x-hidden overflow-y-auto" >
+              <table className="table">
                 <thead className=" h-[18%] sticky top-0 left-0 bg-white border-b-2 border-gray-200 z-20">
                   <tr>
                     <th className="ps-10 text-sm md:ps-19  md:text-xl">Name</th>
@@ -90,7 +90,7 @@ const MainEmployePage = () => {
                   </tr>
                 </thead>
 
-                <tbody className="h-[85%] w-full">
+                <tbody className="h-[85%] w-[100%] overflow-x-hidden">
                   {isLoading ? (
                     <tr>
                       <td colSpan={2}>

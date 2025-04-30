@@ -46,28 +46,50 @@ export const ProjectSchema = yup.object().shape({
 
 
 
-export const TaskSchema = yup.object().shape({
-        title : yup.string().required('Title Is Required') ,
-        description : yup.string().required("Description Is Required"),
-        assignedEmps : yup
-                        .array()
-                        .of(yup.string())
-                        .min(1, 'At least one employee must be assigned')
-                        .test('unique','Please Avoid Duplicate Employee',(value)=>{
-                                return Array.isArray(value) && new Set(value).size === value.length
-                        })
-                        .required("At least one employee must be assigned"),
+// export const TaskSchema = yup.object().shape({
+//         title : yup.string().required('Title Is Required') ,
+//         description : yup.string().required("Description Is Required"),
+//         assignedEmps : yup
+//                         .array()
+//                         .of(yup.string())
+//                         .min(1, 'At least one employee must be assigned')
+//                         .test('unique','Please Avoid Duplicate Employee',(value)=>{
+//                                 return Array.isArray(value) && new Set(value).size === value.length
+//                         })
+//                         .required("At least one employee must be assigned"),
          
-        project : yup.string().required("Project is Required"),
-        deadline : yup.date().required("End Date Is Required"),
-        refImg : yup
-                   .array()
-                   .of(yup.object().shape({
-                                        url: yup.string().required("Image URL is required"),
-                                        public_id: yup.string().required("Image public_id is required"),
-                                         })
-                    )
-                   .required('Reference Image Is Required'),
+//         project : yup.string().required("Project is Required"),
+//         deadline : yup.date().required("End Date Is Required"),
+//         refImg : yup
+//                    .array()
+//                    .of(yup.object().shape({
+//                                         url: yup.string().required("Image URL is required"),
+//                                         public_id: yup.string().required("Image public_id is required"),
+//                                          })
+//                     )
+//                    .required('Reference Image Is Required'),
 
-        status : yup.string().required("Status Is Required")
-})
+//         status : yup.string().required("Status Is Required")
+// })
+
+export const TaskSchema = yup.object({
+  title: yup.string().required('Title is required'),
+  description: yup.string().required('Description is required'),
+  deadline: yup.date().required('End date is required'),
+  project: yup.string().required('Project is required'),
+  assignedEmps: yup.array()
+    .of(yup.string())
+    .min(1, 'Assign at least one employee')
+    .test('unique', 'Duplicate employees are not allowed', value =>
+      Array.isArray(value) && new Set(value).size === value.length
+    ),
+  refImg: yup.array()
+    .of(yup.object({
+      url: yup.string().required('Image URL is required'),
+      public_id: yup.string().required('Image public_id is required'),
+    }))
+    .required('Reference image is required'),
+  status: yup.string().required('Status is required'),
+});
+
+

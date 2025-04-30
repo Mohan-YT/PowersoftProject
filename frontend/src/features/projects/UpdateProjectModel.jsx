@@ -34,6 +34,7 @@ const UpdateProjectModel = () => {
       queryFn : getAllEmps
 
     });
+    
   const FindCurrentProjectData =  projects?.find(emp => emp._id === proId);
                       
     

@@ -2,7 +2,7 @@ import React from 'react'
 
 export const LoadingRingSVG = () => {
   return (
-    <div className="flex justify-center items-center h-35">
+    <div className="flex justify-center items-center">
       <span className="loading loading-ring loading-sm"></span>
   </div>
   )

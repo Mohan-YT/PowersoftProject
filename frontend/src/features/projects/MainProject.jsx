@@ -86,10 +86,10 @@ const MainProjectPage = () => {
               ? <LoadingRingSVG />
               : (
                 allProjects?.map((pro)=>(
-                  <div key={pro._id} className='flex flex-col  md:w-[45vw] max-h-[55%] overflow-auto border border-gray-300 rounded-2xl p-2 relative'>
+                  <div key={pro._id} className='flex flex-col w-[95%] max-h-[65%]  md:w-[45vw] md:max-h-[55%] overflow-auto border border-gray-300 rounded-2xl p-2 my-2 relative'>
                       <div className='flex flex-col justify-center items-center'>
-                          <img className='w-15 h-15 rounded-2xl' src={pro.logo} alt={`${pro.logo} logo`} />
-                          <h1 className='text-2xl font-bold pb-3'>{pro.title}</h1>
+                          <img className=' w-10 h-10 md:w-15 md:h-15 rounded-2xl' src={pro.logo} alt={`${pro.logo} logo`} />
+                          <h1 className='text-xl md:text-2xl font-bold pb-3'>{pro.title}</h1>
                       </div>
 
                       <div className='absolute top-3 right-2 flex  gap-2'>
@@ -104,30 +104,30 @@ const MainProjectPage = () => {
                         <table className='table w-full flex flex-wrap'>
                           <tbody>
                             <tr>
-                              <th className='text-xl'>Description</th>
-                              <td className='text-lg flex flex-wrap'>{pro.description}</td>
+                              <th className='text-lg md:text-xl'>Description</th>
+                              <td className='text-md md:text-lg flex flex-wrap'>{pro.description}</td>
                             </tr>
                             <tr>
-                              <th className='text-xl'>StartDate</th>
-                              <td className='text-lg'>{formatDate(pro.startDate)}</td>
+                              <th className='text-lg md:text-xl'>StartDate</th>
+                              <td className='text-md md:text-lg'>{formatDate(pro.startDate)}</td>
                             </tr>
                             <tr>
-                              <th className='text-xl'>EndDate</th>
-                              <td className='text-lg'>{formatDate(pro.endDate)}</td>
+                              <th className='text-lg md:text-xl'>EndDate</th>
+                              <td className='text-md md:text-lg'>{formatDate(pro.endDate)}</td>
                             </tr>
                             <tr>
-                              <th className='text-xl'>Assigned <br />Employees</th>
+                              <th className='text-lg md:text-xl'>Assigned <br />Employees</th>
                               <td>
                                 <div className='flex flex-wrap py-1'>
                                   {
                                       pro.assignedEmps?.map((emp) => 
                                       (
-                                          <div key={emp._id} className='flex justify-start items-center border rounded-2xl border-gray-300 px-2 py-1 m-1'>
+                                          <div key={emp._id} className='flex justify-start items-center border rounded-2xl border-gray-300 px-1 py-1 m-1 min-w-22'>
                                             <img className='w-10 h-10 rounded-full' src={emp.profileImg} alt={`${emp.name} profile image`} />
 
-                                            <div>
-                                                <h2 className='text-xl' >{emp.name}</h2>
-                                                <p className='text-md'>{emp.position}</p>
+                                            <div className=''>
+                                                <h2 className='text-lg md:text-xl' >{emp.name}</h2>
+                                                <p className='text-sm md:text-md'>{emp.position}</p>
                                             </div>
                                             
                                           </div>

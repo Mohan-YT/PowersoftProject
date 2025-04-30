@@ -71,15 +71,18 @@ const ProjectSec = () => {
                 </div>
               </nav>
 
-              <main className='h-[80%] overflow-y-auto'>
+              <main className='h-[80%]  overflow-y-auto'>
                 <div>
                  {isLoading 
                  ? (
-                    <LoadingRingSVG />
+                  <div className='w-full h-40 flex items-center justify-center'>
+                     <LoadingRingSVG />
+                    </div>
+                   
                     )
                   : (
                     allProjects?.slice(0,2).map((pro)=>(
-                      <div key={pro._id} className='border-1 border-gray-200 px-1 py-2 rounded-2xl mx-1 my-3'>
+                      <div key={pro._id} className='border-1 border-gray-200 px-1 py-0 md:py-2 rounded-2xl mx-1 my-3'>
                           <div className='flex justify-between items-center'>
                             <div className='flex justify-center items-center'>
                                 <img className='w-13 h-13 rounded-2xl' src={pro.logo} alt={`${pro.title} logo`} />

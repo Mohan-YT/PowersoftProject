@@ -1,6 +1,7 @@
 import React from "react";
 import EmployeeSec from "./EmployeeSec";
 import ProjectSec from "./ProjectSec";
+import TaskSec from "./TaskSec";
 
 const Main = () => {
   return (
@@ -15,7 +16,7 @@ const Main = () => {
             <EmployeeSec />
             <ProjectSec />
           </section>
-            
+          <TaskSec />
         </article>
       </main>
     </>
